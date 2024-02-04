@@ -1,0 +1,20 @@
+/* 
+    Stack positions it's children as if them
+    ocuppy the same space. 
+    Alternative to position:absolute
+*/
+
+.stack {
+    width: fit-content;
+    display: grid;
+    grid-template-areas: stack;
+}
+.stack > * {
+    grid-area: stack;
+}
+.stack > *:first-child {
+    position: relative;
+}
+.stack > *[aria-hidden='true'] {
+    visibility: hidden !important;
+}

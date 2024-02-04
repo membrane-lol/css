@@ -1,0 +1,16 @@
+:where(html) {
+    --radio-bg: var(--bg);
+    --radio-hit-area: var(--hit-area-height);
+}
+
+input[type='radio'] {
+    background-color: var(--radio-bg);
+    border-radius: 50%;
+    height: var(--radio-hit-area);
+    width: var(--radio-hit-area);
+    aspect-ratio: 1;
+}
+
+input[type='radio']:not(:disabled):checked {
+    background-color: var(--accent);
+}

@@ -1,0 +1,70 @@
+/* 
+    Use slots for inputs, list items...
+    ie: list items override slot size
+    style="--slot-end:calc(var(--slot-start) * 1.5);" 
+*/
+
+.slot {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* height: max-content; */
+    /* word-break: break-word; */
+
+    &:has(.slot-start):not(:has(.slot-end)) {
+        grid-template-columns: var(--slot-start) minmax(0, 1fr);
+    }
+    &:has(.slot-end):not(:has(.slot-start)) {
+        grid-template-columns: minmax(0, 1fr) var(--slot-end);
+    }
+    /* if has slots or 3 children */
+    &:has(.slot-start, .slot-end),
+    &:has(> :nth-child(3):last-child) {
+        grid-template-columns: var(--slot-start) minmax(0, 1fr) var(--slot-end);
+    }
+    /* if it has > 3 children display error */
+    &:has(> :nth-child(4):last-child) {
+        background-color: var(--accent) !important;
+    }
+
+    & > .slot-start,
+    & > .slot-end {
+        display: inline-grid;
+        place-items: center;
+        place-content: center;
+        align-self: center;
+        align-items: center;
+        overflow: visible;
+    }
+
+    & > .slot-start {
+        width: var(--slot-start);
+        place-items: center;
+    }
+
+    & > .slot-end {
+        width: var(--slot-end);
+    }
+    & > *:not(.slot-start, .slot-end),
+    & > *:only-child {
+        display: grid;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 240px) and (max-width: 360px) {
+    .slot-start {
+        display: none !important;
+    }
+
+    .slot {
+        grid-template-columns: 1fr !important;
+    }
+
+    .slot:has(.slot-end) {
+        grid-template-columns: 1fr var(--list-end) !important;
+    }
+}

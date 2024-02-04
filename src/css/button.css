@@ -1,0 +1,83 @@
+:where(html) {
+    --button-bg: var(--bg);
+    --button-hit-area: var(--hit-area-height);
+    --button-font-small: var(--font-size-1);
+}
+
+.button {
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: start;
+
+    line-height: 1.1;
+    background-color: var(--button-bg);
+    transition: background 220ms ease-in-out, 180ms box-shadow ease-in-out;
+
+    min-width: var(--button-hit-area);
+    min-height: var(--button-hit-area);
+    width: fit-content;
+    height: fit-content;
+
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.button.sm {
+    font-size: var(--button-font-small);
+    min-height: auto;
+}
+
+.button svg {
+    pointer-events: none;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    border: var(--border-width) solid currentColor;
+    height: fit-content;
+}
+
+.button-group.vertical {
+    flex-direction: column;
+}
+
+.button-group button:not(:hover, :focus, :focus-visible) {
+    border-radius: 0;
+    box-shadow: none !important;
+}
+
+.button-group:not(.vertical) button:not(:last-child) {
+    border-right: calc(var(--border-width) / 2) solid currentColor;
+}
+.button-group:not(.vertical) button:not(:first-child) {
+    border-left: calc(var(--border-width) / 2) solid currentColor;
+}
+
+.button-group.vertical button:not(:first-child) {
+    border-top: calc(var(--border-width) / 2) solid currentColor;
+}
+.button-group.vertical button:not(:last-child) {
+    border-bottom: calc(var(--border-width) / 2) solid currentColor;
+}
+
+.button-group > *:first-child {
+    border-top-left-radius: var(--button-border-radius);
+    border-bottom-left-radius: var(--button-border-radius);
+}
+.button-group > *:last-child {
+    border-top-right-radius: var(--button-border-radius);
+    border-bottom-right-radius: var(--button-border-radius);
+}
+
+.button-group.vertical > *:first-child {
+    border-top-left-radius: var(--button-border-radius);
+    border-top-right-radius: var(--button-border-radius);
+}
+.button-group.vertical > *:last-child {
+    border-bottom-left-radius: var(--button-border-radius);
+    border-bottom-right-radius: var(--button-border-radius);
+}

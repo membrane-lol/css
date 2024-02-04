@@ -1,0 +1,81 @@
+:where(html) {
+    --z-1: 1;
+    --z-2: 2;
+    --z-3: 3;
+    --z-max: 999;
+}
+
+.elevate {
+    z-index: var(--z-1);
+}
+
+.elevate.over {
+    z-index: var(--z-2) !important;
+}
+
+.elevate.top {
+    z-index: var(--z-3) !important;
+}
+
+.elevate.max {
+    z-index: var(--z-max) !important;
+}
+
+.cover {
+    inset: 0;
+}
+
+.select-all {
+    user-select: all;
+}
+.select-none {
+    user-select: none;
+}
+
+.circle {
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    min-width: var(--hit-area-height);
+    aspect-ratio: 1;
+}
+
+.icon {
+    vertical-align: middle;
+    overflow: hidden;
+    aspect-ratio: 1;
+    /* pointer-events: visiblePainted; */
+}
+
+/*
+  Quick text columns
+*/
+.columns {
+    --columns-count: 3;
+    --columns-width: min(150px, 30%);
+    columns: var(--columns-count) var(--columns-width);
+}
+
+@media (orientation: landscape) {
+    .hide-portrait {
+        display: none !important;
+    }
+}
+@media (orientation: portrait) {
+    .hide-landscape {
+        display: none !important;
+    }
+}
+
+/* @media (scripting: enabled) {
+  .disclosure-content {
+    display: none;
+  }
+}
+
+@media (scripting: none) {
+  button[aria-expanded] {
+    display: none;
+  }
+} */

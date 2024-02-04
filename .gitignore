@@ -1,0 +1,6 @@
+.env
+Docs.md
+node_modules 
+.DS_Store
+.parcel-cache
+dist

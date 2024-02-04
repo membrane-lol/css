@@ -1,0 +1,138 @@
+@import './demo/tooltip.css';
+@import './demo/skeleton.css';
+@import './demo/data-tray.css';
+
+@import './css/export.css';
+
+/* demo */
+:root {
+    --accent: red;
+    --purple: lch(44, 75, 348);
+    --salmon: lch(64, 75, 12);
+    --orange: lch(72, 75, 24);
+
+    --tooltip-border: #333;
+}
+
+.ratio-demo {
+    grid-template-columns: 1fr;
+    column-gap: var(--gap-1);
+    row-gap: var(--gap-1);
+
+    & div {
+        width: 100%;
+        height: 100%;
+        box-shadow: var(--shadow);
+        display: flex;
+        position: relative;
+    }
+
+    & > * {
+        margin-bottom: 0 !important;
+    }
+
+    & label {
+        min-width: fit-content;
+        cursor: pointer;
+        z-index: var(--z-3);
+        padding: 0 var(--gap-1);
+    }
+
+    & input[type='checkbox'] {
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute;
+        inset: 0;
+    }
+
+    & input[type='radio'] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(var(--hit-area-height) * 1.2);
+        height: calc(var(--hit-area-height) * 1.2);
+        transform: translate(-16px, 16px);
+    }
+}
+
+.ratio-demo label p + p {
+    min-width: 120px;
+}
+
+.ratio-demo fieldset {
+    /* width: min(280px, 40%); */
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--gap-2);
+    row-gap: var(--gap-1);
+    height: fit-content;
+    & + fieldset {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.ratio-demo fieldset div {
+    box-shadow: var(--border-idle);
+}
+@media (orientation: landscape) {
+    .ratio-demo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ratio-demo input[type='radio'] {
+        width: calc(var(--hit-area-height) * 1.4);
+        height: calc(var(--hit-area-height) * 1.4);
+        transform: translate(-16px, 16px);
+    }
+}
+
+.list .list-item button:is(:hover, :focus),
+.card a:is(:hover, :focus) {
+    box-shadow: var(--border-hover) !important;
+}
+
+*:has(> table),
+.intrinsic-flex div,
+.card {
+    box-shadow: var(--border-idle);
+}
+
+.switch-has-label:has(:checked) .label-a {
+    display: none;
+}
+.switch-has-label .label-b {
+    display: none;
+}
+.switch-has-label:has(:checked) .label-b {
+    display: inline-flex;
+}
+
+.tray {
+}
+
+.accent-bg {
+    background-color: var(--accent);
+}
+
+.unit-width-demo {
+    width: 100px;
+    height: fit-content;
+    box-shadow: var(--border-idle);
+}
+.unit-width-demo-xl {
+    width: 128px;
+}
+
+/* .unit-width-demo:not(:has(input[type='checkbox'])) {
+    box-shadow: var(--shadow);
+} */
+
+.card p:first-of-type:not(:only-child),
+[data-card] p:first-of-type:not(:only-child) {
+    margin-bottom: 2em;
+}
+
+#show-tray,
+#show-tray:hover,
+#show-tray:focus {
+    background-color: var(--accent);
+}

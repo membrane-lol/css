@@ -1,0 +1,8 @@
+/* 
+    Container 
+    style="--container-width: 780px;" 
+*/
+.container {
+    width: min(100vw - 3rem, var(--container-width, 80ch));
+    margin-inline: auto;
+}

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "isolatedModules": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/cva.js"
+    ],
+    "exclude": [
+        "sharp.config.json",
+        "prettier.config.cjs",
+        "dist",
+        "node_modules"
+    ]
+}

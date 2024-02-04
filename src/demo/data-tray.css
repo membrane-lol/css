@@ -1,0 +1,58 @@
+:where(html) {
+    --tray-bg: var(--bg);
+    --tray-overlay: rgba(0, 0, 0, 0.4);
+    --tray-shadow: var(--shadow);
+    --tray-height: 60vh;
+    --tray-max: 600px;
+    --tray-width: 80%;
+    --tray-start-end-spacing: calc(calc(100% - 80%) / 2);
+    --tray-border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+[data-tray-overlay] {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    display: none;
+    z-index: var(--z-3);
+    transition: all 0.3s ease-in-out;
+}
+[data-tray-overlay][data-tray-overlay-open='true'] {
+    display: flex;
+    align-self: stretch;
+    background-color: var(--tray-overlay) !important;
+}
+
+[data-tray] {
+    isolation: isolate;
+    position: fixed;
+    z-index: var(--z-max);
+    width: var(--tray-width);
+    left: var(--tray-start-end-spacing);
+    right: var(--tray-start-end-spacing);
+    bottom: 0;
+    /* bottom: calc(calc(var(--tray-height) + 4vh) * -1); */
+    transform: translateY(101%);
+    transition:
+        transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+        opacity 0.1s ease-in-out;
+    opacity: 0;
+    height: min(var(--tray-height), var(--tray-max));
+    background-color: var(--tray-bg) !important;
+    border-radius: var(--tray-border-radius);
+    box-shadow: var(--tray-shadow);
+}
+[data-tray][data-tray-open='true'] {
+    bottom: 0;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (orientation: portrait) {
+    [data-tray] {
+        width: 90%;
+        left: 5%;
+    }
+}

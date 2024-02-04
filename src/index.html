@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href="/src/svg/favicon.png" />
+        <link rel="preload" as="image/svg+xml" href="/src/svg/sprite.svg" />
+        <title>CSS !</title>
+        <link rel="stylesheet" href="/src/styles.css" />
+    </head>
+    <body>
+        <nav class="row padding-xy md gap-md place-items-center">
+            <a
+                href="#"
+                style="text-decoration: none"
+                tooltip="flex-wrap:wrap"
+                flow="right"
+            >
+                <svg
+                    width="36px"
+                    height="36px"
+                    focusable="false"
+                    class="icon"
+                    aria-labelledby="info"
+                    viewbox="0 0 36 36"
+                >
+                    <title id="info">Info</title>
+                    <use href="/src/svg/sprite.svg#pin" />
+                </svg>
+            </a>
+
+            <button
+                data-button-opens="flex-wrap"
+                type="button"
+                class="circle"
+                tooltip="Notes"
+                flow="right"
+            >
+                <svg
+                    width="36px"
+                    height="36px"
+                    focusable="false"
+                    class="icon"
+                    aria-labelledby="documentation"
+                    viewbox="0 0 36 36"
+                >
+                    <title id="documentation">Notes</title>
+                    <use href="/src/svg/sprite.svg#chevronUp" />
+                </svg>
+            </button>
+        </nav>
+        <main class="padding-x sm">
+            <section class="animation-fade-in column gap-xl">
+                <article id="demo"></article>
+                <br aria-hidden="true" />
+
+                <aside></aside>
+            </section>
+            <br aria-hidden="true" />
+            <footer class="row gap-sm place-items-center">
+                <p>
+                    <strong>FYI</strong> inspect &amp; navigate with
+                    <kbd>TAB</kbd>, hover pins and wiggling
+                </p>
+                <p
+                    class="skeleton-text text-short-xxl animation-wiggle-hover"
+                    tooltip="to reveal details"
+                    flow="right"
+                />
+            </footer>
+            <br aria-hidden="true" />
+        </main>
+
+        <div
+            data-tray-overlay
+            data-tray-overlay-open="false"
+            aria-hidden="true"
+        ></div>
+        <div data-tray data-tray-open="false" class="tray overflow-y"></div>
+
+        <script type="module" src="/src/app.js"></script>
+        <script type="module" src="/src/demo/tray.js"></script>
+        <script type="module" src="/src/demo/docs.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                console.warn('https://github.com/polmoneys');
+
+                app();
+                tray();
+
+                [...document.querySelectorAll('[data-button-opens]')].map((b) =>
+                    b.addEventListener('click', function () {
+                        const destination = b.dataset.buttonOpens;
+                        docs(destination);
+                    })
+                );
+            });
+        </script>
+
+        <!-- <div style="background: url(logo.png?width=400&height=400)">Hello!</div> -->
+    </body>
+</html>

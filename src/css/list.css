@@ -1,0 +1,48 @@
+:where(html) {
+    --list-start: var(--slot-start);
+    --list-end: calc(var(--slot-start) * 1.5);
+}
+
+/* element before .list  */
+*:has(+ .list) {
+}
+
+.list {
+    box-shadow: var(--border-idle);
+    list-style: none;
+}
+
+.list > .list-item:not(:last-child) {
+    border-bottom: var(--border-width) solid currentColor;
+}
+
+.list > .list-divider {
+    margin-bottom: -0.5em !important;
+    margin-top: -0.5em !important;
+}
+
+.list-item {
+    &:focus-within {
+    }
+
+    & button {
+        min-width: auto !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        width: fit-content;
+
+        &:hover {
+            background-color: transparent !important;
+        }
+
+        &:focus,
+        &:focus-visible {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+    }
+}
+
+/* last item */
+.list-item:not(:has(~ .list-item)) {
+}

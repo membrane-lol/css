@@ -1,0 +1,49 @@
+/*
+    Intrinsic grid assign a min-width to
+    children so that them can grow to 
+    fill space but not shrink too much.
+    Ends width-related media queries
+*/
+
+.intrinsic-flex {
+    --min-content-width: 20rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.intrinsic-flex > * {
+    flex: 1 1 var(--min-content-width);
+}
+
+/* sm by default */
+.intrinsic-grid {
+    --item-grid-xsm: 125px;
+    --item-grid-sm: 250px;
+    --item-grid-md: 440px;
+    --item-grid-lg: 690px;
+    --item-grid-xl: 860px;
+    --grid-item-width: var(--item-grid-sm);
+    align-items: start;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, var(--grid-item-width)), 1fr)
+    );
+    width: 100%;
+}
+
+.intrinsic-grid.xsm {
+    --grid-item-width: var(--item-grid-xsm);
+}
+
+.intrinsic-grid.md {
+    --grid-item-width: var(--item-grid-md);
+}
+
+.intrinsic-grid.lg {
+    --grid-item-width: var(--item-grid-lg);
+}
+
+.intrinsic-grid.xl {
+    --grid-item-width: var(--item-grid-xl);
+}

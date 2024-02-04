@@ -1,0 +1,56 @@
+:where(html) {
+    /* iOS */
+    --input-font-size: max(16px, 1em);
+}
+
+.input:has(.slot-start),
+.input:has(.slot-end),
+.input:has(.slot-start):has(.slot-end) {
+    box-shadow: var(--border-idle);
+    transition: 180ms box-shadow ease-in-out;
+
+    &:focus-within {
+        box-shadow: var(--border-focus);
+        outline: 1px solid transparent;
+    }
+
+    & input {
+        box-shadow: none;
+    }
+}
+
+input[type='file'] {
+    padding-left: 0;
+    max-width: 100%;
+    box-shadow: var(--border-idle);
+    color: currentColor;
+}
+
+input[type='file']::file-selector-button {
+    padding: var(--gap-4);
+    border-radius: var(--border-radius);
+    height: 100%;
+    border: thin solid transparent;
+    border-radius: 0;
+    margin-right: var(--gap-3);
+}
+
+input[type='date'] {
+    background-color: var(--transparent);
+}
+
+input[type='search'] {
+    caret-color: currentColor;
+}
+
+input[type='search']::-webkit-calendar-picker-indicator {
+    color: currentColor;
+}
+input[type='search']::-webkit-clear-button {
+    color: currentColor;
+}
+
+input[type='password'] {
+    font-family: Verdana;
+    letter-spacing: 0.125em;
+}

@@ -1,0 +1,111 @@
+:where(html) {
+    --font-size-0: 0.75rem;
+    --font-size-1: 1rem;
+    --font-size-2: 1.333rem;
+    --font-size-3: 1.666rem;
+    --font-size-4: 2rem;
+    --font-size-5: 2.333rem;
+    --font-size-6: 2.999rem;
+    --font-size-fluid-1: clamp(2rem, 9vw, 3.5rem);
+}
+
+.shout {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.green-to-red {
+    filter: hue-rotate(-120deg);
+}
+
+.red-to-green {
+    filter: hue-rotate(120deg);
+}
+
+.number {
+    font-variant-numeric: tabular-nums;
+}
+
+.clamp {
+    --clamp-lines: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--clamp-lines);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ellipsis > * {
+    display: block;
+    overflow: hidden;
+    padding: var(--gap-1) var(--gap-3);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ellipsis:hover > * {
+    background-color: inherit;
+    contain: paint;
+    width: fit-content;
+    min-width: 100%;
+}
+
+.ellipsis-all-but-first-letter {
+    font-size: 0;
+}
+
+.ellipsis-all-but-first-letter::first-letter {
+    font-size: var(--font-size);
+}
+
+.font-xs {
+    font-size: var(--font-size-0) !important;
+}
+
+.font-sm {
+    font-size: var(--font-size-1) !important;
+}
+.font-lg {
+    font-size: var(--font-size-3) !important;
+}
+
+.font-xl {
+    font-size: var(--font-size-4) !important;
+}
+
+.font-xxl {
+    font-size: var(--font-size-5) !important;
+}
+
+.font-xxxl {
+    font-size: var(--font-size-6) !important;
+}
+
+/* with a six-character word limit, three characters before the hyphenation break and two after */
+.hyphenate {
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-chars: 6 3 3;
+    -webkit-hyphenate-limit-lines: 2;
+    -webkit-hyphenate-limit-last: always;
+    -webkit-hyphenate-limit-zone: 8%;
+    -moz-hyphens: auto;
+    -moz-hyphenate-limit-chars: 6 3 3;
+    -moz-hyphenate-limit-lines: 2;
+    -moz-hyphenate-limit-last: always;
+    -moz-hyphenate-limit-zone: 8%;
+    -ms-hyphens: auto;
+    -ms-hyphenate-limit-chars: 6 3 3;
+    -ms-hyphenate-limit-lines: 2;
+    -ms-hyphenate-limit-last: always;
+    -ms-hyphenate-limit-zone: 8%;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-last: always;
+    hyphenate-limit-zone: 8%;
+}

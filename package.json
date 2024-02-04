@@ -1,0 +1,26 @@
+{
+    "name": "my-css",
+    "source": "src/index.html",
+    "devDependencies": {
+        "@parcel/transformer-inline-string": "^2.11.0",
+        "parcel": "^2.11.0",
+        "sharp": "^0.31.3"
+    },
+    "@parcel/transformer-css": {
+        "drafts": {
+            "nesting": true,
+            "customMedia": true
+        }
+    },
+    "scripts": {
+        "start": "parcel",
+        "clean": "rm -rf ./dist",
+        "build": "parcel build",
+        "dev": "npx parcel src/index.html",
+        "check": "tsc --noEmit"
+    },
+    "dependencies": {
+        "cva": "npm:class-variance-authority@^0.7.0",
+        "lit-html": "^3.1.1"
+    }
+}
