@@ -9,24 +9,44 @@
     --font-size-fluid-1: clamp(2rem, 9vw, 3.5rem);
 }
 
+.number {
+    font-variant-numeric: tabular-nums;
+}
+
+.font {
+    font-size: var(--font-size-2);
+
+    &.xs {
+        font-size: var(--font-size-0) !important;
+    }
+
+    &.sm {
+        font-size: var(--font-size-1) !important;
+    }
+
+    &.lg {
+        font-size: var(--font-size-3) !important;
+    }
+
+    &.xl {
+        font-size: var(--font-size-4) !important;
+    }
+
+    &.xxl {
+        font-size: var(--font-size-5) !important;
+    }
+
+    &.xxxl {
+        font-size: var(--font-size-6) !important;
+    }
+}
+
 .shout {
     text-transform: uppercase;
 }
 
 .text-center {
     text-align: center;
-}
-
-.green-to-red {
-    filter: hue-rotate(-120deg);
-}
-
-.red-to-green {
-    filter: hue-rotate(120deg);
-}
-
-.number {
-    font-variant-numeric: tabular-nums;
 }
 
 .clamp {
@@ -55,33 +75,9 @@
 
 .ellipsis-all-but-first-letter {
     font-size: 0;
-}
-
-.ellipsis-all-but-first-letter::first-letter {
-    font-size: var(--font-size);
-}
-
-.font-xs {
-    font-size: var(--font-size-0) !important;
-}
-
-.font-sm {
-    font-size: var(--font-size-1) !important;
-}
-.font-lg {
-    font-size: var(--font-size-3) !important;
-}
-
-.font-xl {
-    font-size: var(--font-size-4) !important;
-}
-
-.font-xxl {
-    font-size: var(--font-size-5) !important;
-}
-
-.font-xxxl {
-    font-size: var(--font-size-6) !important;
+    &::first-letter {
+        font-size: var(--font-size);
+    }
 }
 
 /* with a six-character word limit, three characters before the hyphenation break and two after */

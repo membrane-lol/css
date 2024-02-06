@@ -1,5 +1,5 @@
 :where(html) {
-    --radio-bg: var(--bg);
+    --radio-bg: var(--bg-idle);
     --radio-hit-area: var(--hit-area-height);
 }
 
@@ -12,5 +12,5 @@ input[type='radio'] {
 }
 
 input[type='radio']:not(:disabled):checked {
-    background-color: var(--accent);
+    background-color: var(--bg-active);
 }

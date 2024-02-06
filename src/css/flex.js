@@ -1,5 +1,5 @@
 import { cva } from 'cva';
-import { padding, gap } from './utils.js';
+import { padding, gap, border } from './utils.js';
 
 export const unit = cva(['unit'], {
     variants: {
@@ -9,6 +9,7 @@ export const unit = cva(['unit'], {
         },
         ...padding,
         ...gap,
+        ...border,
     },
     defaultVariants: {
         intent: 'center',
@@ -23,6 +24,7 @@ export const row = cva(['row'], {
         },
         ...padding,
         ...gap,
+        ...border,
     },
     compoundVariants: [
         {

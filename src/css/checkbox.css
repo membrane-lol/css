@@ -1,8 +1,8 @@
 :where(html) {
-    --checkbox-bg: var(--bg);
+    --checkbox-bg: var(--bg-idle);
     --checkbox-hit-area: var(--hit-area-height);
 
-    --switch-bg: var(--bg);
+    --switch-bg: var(--bg-idle);
     --switch-hit-area: var(--hit-area-height);
 }
 
@@ -14,7 +14,7 @@ input[type='checkbox']:not(.switch) {
 
 input[type='checkbox']:not([disabled], .switch, [data-switch]):checked,
 input[type='checkbox']:not(:disabled, .switch, [data-switch]):checked {
-    background-color: var(--accent);
+    background-color: var(--bg-active);
 }
 
 input[type='checkbox']:indeterminate:before {
@@ -50,13 +50,14 @@ input[type='checkbox']:indeterminate:before {
     display: flex;
     background-color: currentColor;
     transform: translateX(var(--switch-x, 0));
+    z-index: var(--z-1);
 }
 .switch:checked {
     --switch-x: var(--switch-hit-area);
 }
 
 .switch:checked:after {
-    background-color: var(--accent);
+    background-color: var(--bg-active);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-top-right-radius: var(--border-radius);

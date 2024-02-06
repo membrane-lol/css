@@ -1,0 +1,40 @@
+:where(html) {
+    --foreground: 37, 37, 37;
+    --color: rgb(var(--foreground));
+
+    --sand: rgb(234, 221, 207);
+    --rock: rgb(140, 120, 81);
+    --apple: rgb(242, 80, 66);
+
+    --salmon: lch(64, 75, 12);
+    --orange: lch(72, 75, 24);
+    --yellow: lch(81, 75, 36);
+}
+
+html,
+body {
+    background-color: var(--sand);
+}
+
+.glitter {
+    filter: brightness(1.3);
+}
+
+.logo {
+    mix-blend-mode: darken;
+    /* difference overlay */
+    filter: grayscale(100%) contrast(1%);
+    &:hover {
+        mix-blend-mode: normal;
+        filter: none;
+    }
+}
+
+/* ie: emoji */
+.green-to-red {
+    filter: hue-rotate(-120deg);
+}
+
+.red-to-green {
+    filter: hue-rotate(120deg);
+}

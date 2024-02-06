@@ -2,14 +2,22 @@
     isolation: isolate;
 
     &:focus-within {
-        box-shadow: 0 0 0 4px var(--accent);
+        box-shadow: 0 0 0 4px var(--bg-idle);
     }
 
-    & > ::-webkit-input-placeholder {
+    & ::-webkit-input-placeholder {
         color: currentColor;
     }
 
-    & > ::-ms-input-placeholder {
+    & ::-ms-input-placeholder {
+        color: currentColor;
+    }
+
+    & ::placeholder-shown {
+        color: currentColor;
+    }
+
+    & *::selection {
         color: currentColor;
     }
 }

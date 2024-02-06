@@ -26,3 +26,13 @@ export const padding = {
         xl: ['padding-xy', 'xl'],
     },
 };
+export const border = {
+    border: {
+        base: ['border-shadow outer'],
+        inner: ['border-shadow inner'],
+        left: ['border-shadow left'],
+        right: ['border-shadow right'],
+        top: ['border-shadow top'],
+        bottom: ['border-shadow bottom'],
+    },
+};

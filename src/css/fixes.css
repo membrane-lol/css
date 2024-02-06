@@ -3,11 +3,27 @@
     --shout: uppercase;
     --set-solid: 1;
 
-    --foreground: 37, 37, 37;
-    --background: 255, 255, 255;
-    --bg: rgb(var(--background));
-    --color: rgb(var(--foreground));
-    --accent: lch(64, 75, 12);
+    --bg-idle: rgb(249, 244, 239);
+    --bg-active: var(--salmon);
+    --interactive-gap: var(--gap-1) var(--gap-3) !important;
+    --hit-area-height: max(44px, 2em);
+    --hit-area-width: 10ch;
+
+    --border-width: 2px;
+    --border-shadow-color: currentColor;
+    --border-idle: 0 0 0 var(--border-width) var(--border-shadow-color);
+    --border-hover: 0 0 0 var(--border-width) var(--apple);
+
+    --spread-factor: 1.2;
+    --border-focus-spread: 0 0 0
+        calc(var(--border-width) * var(--spread-factor));
+    --border-focus: var(--border-focus-spread) var(--apple);
+
+    --slot: 2.4rem;
+    --slot-start: var(--slot);
+    --slot-end: var(--slot);
+
+    --border-radius: 0.05rem;
 
     --ratio-square: 1;
     --ratio-portrait: 9/16;
@@ -20,25 +36,6 @@
     --gap-4: 1em;
     --gap-5: 1.2em;
 
-    --border-radius: 0.05rem;
-    --border-width: 2px;
-    --border-shadow-color: currentColor;
-    --border-idle: 0 0 0 var(--border-width) var(--border-shadow-color);
-    --border-hover: 0 0 0 var(--border-width) var(--accent);
-
-    --spread-factor: 1.2;
-    --border-focus-spread: 0 0 0
-        calc(var(--border-width) * var(--spread-factor));
-    --border-focus: var(--border-focus-spread) var(--disabled-color);
-
-    --interactive-gap: var(--gap-1) var(--gap-3) !important;
-    --hit-area-height: max(44px, 2em);
-    --hit-area-width: 10ch;
-
-    --slot: 2.4rem;
-    --slot-start: var(--slot);
-    --slot-end: var(--slot);
-
     --alpha-100: 0.12;
     --alpha-200: 0.6;
     --disabled-opacity: var(--alpha-200);
@@ -48,6 +45,7 @@
     --none: none !important;
 }
 
+/* make waves at everything behave */
 *,
 :after,
 :before {
@@ -57,9 +55,11 @@
 * {
     margin: 0;
     padding: 0;
+    /* testing */
     scroll-behavior: smooth;
 }
 
+/* stabilize & enhance scrolling experience */
 html {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch;
@@ -68,14 +68,13 @@ html {
     text-size-adjust: 100%;
     overflow-y: scroll;
 }
-
 @supports (scrollbar-gutter: stable) {
     html {
         overflow-y: auto;
         scrollbar-gutter: stable;
     }
 }
-
+/* fight me */
 body {
     width: 100%;
     height: 100%;
@@ -83,6 +82,7 @@ body {
     inline-size: 100%;
 }
 
+/* imo text is the most important part of the interface */
 html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -123,6 +123,7 @@ p:has(span, b) {
     font-size: inherit;
 }
 
+/* enhance another staple, top 3 of fav CSS ever */
 a {
     hyphens: none;
     text-decoration: underline;
@@ -133,9 +134,11 @@ a {
 }
 
 a:is(:visited, :hover) {
+    /* testing */
     touch-action: manipulation;
 }
 
+/* mark external links */
 a[target='_blank']:after {
     content: 'external link';
     width: 1px !important;
@@ -151,6 +154,7 @@ a[target='_blank']:after {
 }
 
 :is(a, button) {
+    /* debatable */
     cursor: pointer;
 }
 
@@ -179,6 +183,10 @@ a[target='_blank']:after {
     margin: 0;
 }
 
+:is(button, input[type='radio'], input[type='checkbox'], textarea, .link) {
+    background-color: var(--bg-idle);
+}
+
 :is(
         button,
         input[type='search'],
@@ -188,7 +196,6 @@ a[target='_blank']:after {
         textarea,
         .link
     ) {
-    /* background-color: var(--bg); */
     border-radius: var(--border-radius);
     box-shadow: var(--border-idle);
     padding: var(--interactive-gap);
@@ -318,14 +325,14 @@ progress[value] {
     height: calc(var(--comfy-height) / 2);
     --overlay: rgba(var(--foreground), var(--alpha-200));
     background-image: linear-gradient(var(--overlay), var(--overlay));
-    background-color: rgb(var(--background));
+    background-color: rgb(var(--bg-idle));
     border-radius: var(--progress-radius);
 }
 
 progress[value]::-webkit-progress-bar {
     --overlay: rgba(var(--foreground), var(--alpha-200));
     background-image: linear-gradient(var(--overlay), var(--overlay));
-    background-color: rgb(var(--background));
+    background-color: rgb(var(--bg-idle));
     border-radius: var(--progress-radius);
 }
 
@@ -476,9 +483,7 @@ thead th {
     top: 0;
     border-top: 0;
     background-clip: padding-box;
-    --overlay: rgba(var(--foreground), var(--alpha-200));
-    background-image: linear-gradient(var(--overlay), var(--overlay));
-    background-color: rgb(var(--background));
+    background-color: var(--bg-idle);
 }
 
 tbody td {
@@ -493,15 +498,11 @@ tbody {
 thead tr th:first-of-type,
 tbody tr td:first-of-type {
     position: sticky !important;
-    --overlay: rgba(var(--foreground), var(--alpha-100));
-    background-image: linear-gradient(var(--overlay), var(--overlay));
-    background-color: rgb(var(--background));
+    background-color: var(--bg-active);
     left: 0;
 }
 thead tr th:first-of-type {
-    --overlay: rgba(var(--foreground), var(--alpha-100));
-    background-image: linear-gradient(var(--overlay), var(--overlay));
-    background-color: rgb(var(--background));
+    background-color: var(--bg-active);
 }
 thead tr th:first-of-type {
     z-index: var(--z-max);
@@ -511,9 +512,6 @@ tbody tr td:first-of-type {
     z-index: var(--z-1);
 }
 
-tbody td:nth-child(2n) {
-    background-color: var(--bg);
-}
 th:last-child,
 td:last-child {
     border-right-width: 0;
@@ -527,6 +525,7 @@ tbody tr td:first-of-type {
     min-width: 360px;
 }
 
+/* enhance ul */
 ul:not(.list) {
     list-style-type: '';
     margin-trim: block-end;
@@ -537,6 +536,21 @@ ul:not(.list) {
 li:not(.list-item) {
     margin-block-end: var(--gap-2);
     margin-inline-start: var(--gap-4);
+}
+
+ul.disc {
+    list-style: circle;
+    & li {
+        margin-block: var(--gap-2);
+        color: currentColor;
+    }
+    & li::marker {
+        font-size: var(--font-size-3);
+    }
+    & li:has(:hover, :focus-within) {
+        list-style: disc;
+        color: currentColor;
+    }
 }
 
 img {
@@ -553,6 +567,7 @@ img {
     display: none !important;
 }
 
+/* stabilize experience for humans with different needs */
 @media (prefers-reduced-motion: reduce) {
     html:focus-within {
         scroll-behavior: auto;

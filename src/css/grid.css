@@ -6,6 +6,14 @@
     }
 }
 
+.grid-item-sticky {
+    grid-area: 1 / auto/auto/-1;
+    /* 
+    grid-row: 1;
+    grid-column-end: -1;
+    */
+}
+
 /*
   Art direction
   Items play nice with data-ratio

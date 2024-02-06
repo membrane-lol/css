@@ -24,7 +24,7 @@
     }
     /* if it has > 3 children display error */
     &:has(> :nth-child(4):last-child) {
-        background-color: var(--accent) !important;
+        background-color: var(--bg-active) !important;
     }
 
     & > .slot-start,

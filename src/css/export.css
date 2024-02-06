@@ -1,6 +1,9 @@
+@import './palette.css';
+
 @import './fixes.css';
 
 @import './animation.css';
+@import './border.css';
 @import './button.css';
 @import './checkbox.css';
 @import './container.css';
@@ -12,6 +15,7 @@
 @import './input.css';
 @import './intrinsic.css';
 @import './list.css';
+@import './mask.css';
 @import './overflow.css';
 @import './padding.css';
 @import './radio.css';

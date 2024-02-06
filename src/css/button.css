@@ -1,5 +1,5 @@
 :where(html) {
-    --button-bg: var(--bg);
+    --button-bg: var(--bg-idle);
     --button-hit-area: var(--hit-area-height);
     --button-font-small: var(--font-size-1);
 }

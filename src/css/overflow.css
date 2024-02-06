@@ -28,7 +28,7 @@
     &:hover::-webkit-scrollbar-track {
         --overlay: rgba(var(--foreground), var(--alpha-300));
         background-image: linear-gradient(var(--overlay), var(--overlay));
-        background-color: rgb(var(--background));
+        background-color: rgb(var(--bg-idle));
     }
 }
 

@@ -3,6 +3,7 @@
     style="--container-width: 780px;" 
 */
 .container {
+    --container-width: 780px;
     width: min(100vw - 3rem, var(--container-width, 80ch));
     margin-inline: auto;
 }

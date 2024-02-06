@@ -1,0 +1,27 @@
+.border-radius {
+    border-radius: var(--border-radius);
+}
+
+.border-shadow {
+    --border-shadow-color: currentColor;
+    &.outer {
+        box-shadow: 0 0 0 var(--border-width) var(--border-shadow-color);
+    }
+    &.inner {
+        box-shadow: inset 0 0 0 var(--border-width) var(--border-shadow-color);
+    }
+    &.left {
+        box-shadow: inset var(--border-width) 0 0 0 var(--border-shadow-color);
+    }
+    &.right {
+        box-shadow: inset calc(var(--border-width) * -1) 0 0 0
+            var(--border-shadow-color);
+    }
+    &.top {
+        box-shadow: inset 0 var(--border-width) 0 0 var(--border-shadow-color);
+    }
+    &.bottom {
+        box-shadow: inset 0 calc(var(--border-width) * -1) 0 0
+            var(--border-shadow-color);
+    }
+}

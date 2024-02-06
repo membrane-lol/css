@@ -10,3 +10,9 @@
     filter: brightness(var(--background-img-brightness))
         saturate(var(--background-img-saturate));
 }
+
+/* @media (prefers-color-scheme: dark) {
+    img[src$='.png'] {
+        background-color: var(--bg-idle);
+    }
+} */
