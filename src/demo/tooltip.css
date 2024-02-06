@@ -1,9 +1,10 @@
 [tooltip] {
     --tooltip-base: var(--tooltip-border);
     position: relative;
+    z-index: var(--z-3);
 }
 [tooltip].red {
-    --tooltip-base: var(--accent);
+    --tooltip-base: var(--salmon);
 }
 
 [tooltip].blue {
@@ -28,7 +29,7 @@
 [tooltip]::before {
     content: '';
     border: 5px solid transparent;
-    z-index: 1001;
+    z-index: 100;
 }
 [tooltip]::after {
     content: attr(tooltip);
@@ -48,7 +49,7 @@
     box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
     background: var(--tooltip-base);
     color: #fff;
-    z-index: 1000; /* absurdity 2 */
+    z-index: 1003; /* absurdity 2 */
 }
 
 /* Make the tooltips respond to hover */

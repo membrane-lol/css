@@ -1,4 +1,5 @@
 import { html, render, svg } from 'lit-html';
+import { cx } from 'cva';
 import {
     line,
     lineShort,
@@ -13,10 +14,10 @@ import { row, unit } from './css/flex.js';
 import { button, buttonGroup } from './css/button.js';
 import { intrinsic } from './css/intrinsic.js';
 import { ratio } from './css/ratio.js';
+import { font } from './css/font.js';
 import { input } from './css/input.js';
 import { item } from './css/slot.js';
 import { list } from './css/list.js';
-import { cx } from 'cva';
 
 const sprite = new URL('./svg/sprite.svg', import.meta.url);
 
@@ -41,18 +42,19 @@ const unitDemo = html`
             class="${unit({
                 intent: 'center',
                 paddingXY: 'sm',
+                border: 'base',
                 gap: 'sm',
                 class: 'unit-width-demo',
             })}"
         >
             ${Icon({ d: 'heart', label: 'heart', size: 24 })}
             <p
-                data-font
-                data-font-number
                 tooltip="Text is short, 1 line"
                 flow="right"
-                data-animation-wiggle-hover
-                class="red"
+                class="${font({
+                    intent: 'number',
+                    class: ['red', 'animation-wiggle-hover'],
+                })}"
             >
                 ${lineSlotStart}
             </p>
@@ -61,6 +63,7 @@ const unitDemo = html`
             class="${unit({
                 intent: 'center',
                 paddingXY: 'sm',
+                border: 'base',
                 gap: 'sm',
                 class: 'unit-width-demo',
             })}"
@@ -68,11 +71,12 @@ const unitDemo = html`
             ${Icon({ d: 'heart', label: 'heart', size: 24 })}
 
             <p
-                data-font
-                data-font-number
                 tooltip="Text is long, new line"
                 flow="right"
-                data-animation-wiggle-hover
+                class="${font({
+                    intent: 'number',
+                    class: ['red', 'animation-wiggle-hover'],
+                })}"
             >
                 ${lineShort}
             </p>
@@ -82,46 +86,84 @@ const unitDemo = html`
             class="${unit({
                 intent: 'center',
                 paddingXY: 'sm',
+                border: 'base',
                 gap: 'sm',
                 class: 'unit-width-demo',
             })}"
         >
-            <p data-font data-font-number>${lineShort}</p>
+            <p
+                class="${font({
+                    intent: 'number',
+                    class: ['red', 'animation-wiggle-hover'],
+                })}"
+            >
+                ${lineShort}
+            </p>
             ${Icon({ d: 'star', label: 'star', size: 24 })}
         </div>
         <div
             class="${unit({
                 intent: 'center',
                 paddingXY: 'sm',
+                border: 'base',
                 gap: 'sm',
                 class: 'unit-width-demo',
             })}"
         >
-            <p data-font data-font-number>${lineSlotStart}</p>
+            <p
+                class="${font({
+                    intent: 'number',
+                    class: ['red', 'animation-wiggle-hover'],
+                })}"
+            >
+                ${lineSlotStart}
+            </p>
             ${Icon({ d: 'star', label: 'star', size: 24 })}
         </div>
         <div
             class="${unit({
                 intent: 'center',
                 paddingXY: 'sm',
+                border: 'base',
                 gap: 'sm',
                 class: 'unit-width-demo unit-width-demo-xl',
             })}"
         >
-            <input type="checkbox" name="option" value="D" id="checkbox-d" />
-            <label for="checkbox-d"> ${lineShortXXL} </label>
+            <input type="checkbox" name="option" value="D" id="checkbox-dd" />
+            <label
+                for="checkbox-dd"
+                tooltip="Checkbox and label"
+                flow="right"
+                class="${font({
+                    intent: 'number',
+                    class: ['red', 'animation-wiggle-hover'],
+                })}"
+            >
+                ${lineShortXXL}
+            </label>
         </div>
 
         <div
             class="${unit({
                 intent: 'center',
                 paddingXY: 'sm',
+                border: 'base',
                 gap: 'sm',
                 class: 'unit-width-demo unit-width-demo-xl',
             })}"
         >
-            <input type="checkbox" name="option" value="D" id="checkbox-d" />
-            <label for="checkbox-d"> ${line} </label>
+            <input type="checkbox" name="option" value="G" id="checkbox-gg" />
+            <label
+                for="checkbox-gg"
+                tooltip="Longer label, fall to column"
+                flow="right"
+                class="${font({
+                    intent: 'number',
+                    class: ['red', 'animation-wiggle-hover'],
+                })}"
+            >
+                ${line}
+            </label>
         </div>
         <div
             class="${unit({
@@ -135,10 +177,10 @@ const unitDemo = html`
                 type="checkbox"
                 name="option"
                 value="F"
-                id="checkbox-f"
+                id="checkbox-ff"
             />
-            <label for="checkbox-f" class="label-a"> N </label>
-            <label for="checkbox-f" class="label-b"> Y </label>
+            <label for="checkbox-ff" class="label-a"> N </label>
+            <label for="checkbox-ff" class="label-b"> Y </label>
         </div>
 
         <a href="javascript:;">Link</a>
@@ -648,9 +690,7 @@ const ratioDemo = html`<div
                     class: ['place-items-center', 'place-content-center'],
                 })}"
             >
-                <label for="checkbox-a" style="color: var(--salmon)">
-                    ${lineShortXL} ${lineShort}
-                </label>
+                <label for="checkbox-a"> ${lineShortXL} ${lineShort} </label>
                 <input
                     type="checkbox"
                     name="option"
@@ -665,9 +705,7 @@ const ratioDemo = html`<div
                     class: ['place-items-center', 'place-content-center'],
                 })}"
             >
-                <label for="checkbox-b" style="color: var(--salmon)">
-                    ${lineShortXL} ${lineShort}
-                </label>
+                <label for="checkbox-b"> ${lineShortXL} ${lineShort} </label>
                 <input
                     type="checkbox"
                     name="option"
@@ -683,9 +721,7 @@ const ratioDemo = html`<div
                     class: ['place-items-center', 'place-content-center'],
                 })}"
             >
-                <label for="checkbox-c" style="color: var(--salmon)">
-                    ${lineShortXL} ${lineShort}
-                </label>
+                <label for="checkbox-c"> ${lineShortXL} ${lineShort} </label>
                 <input
                     type="checkbox"
                     name="option"
@@ -701,9 +737,7 @@ const ratioDemo = html`<div
                     class: ['place-items-center', 'place-content-center'],
                 })}"
             >
-                <label for="checkbox-d" style="color: var(--salmon)">
-                    ${lineShortXL} ${lineShort}
-                </label>
+                <label for="checkbox-d"> ${lineShortXL} ${lineShort} </label>
                 <input
                     type="checkbox"
                     name="option"
@@ -721,7 +755,7 @@ const ratioDemo = html`<div
                     class: ['place-items-center', 'place-content-center'],
                 })}"
             >
-                <label for="radio-a"> ${lineShortXL} ${lineShort} </label>
+                <label for="radio-a"> ${lineShort} </label>
                 <input type="radio" name="option" value="A" id="radio-a" />
             </div>
 
@@ -732,7 +766,7 @@ const ratioDemo = html`<div
                     class: ['place-items-center', 'place-content-center'],
                 })}"
             >
-                <label for="radio-b"> ${lineShortXL} ${lineShort} </label>
+                <label for="radio-b"> ${lineShortXL} </label>
                 <input type="radio" name="option" value="B" id="radio-b" />
             </div>
 
@@ -743,7 +777,7 @@ const ratioDemo = html`<div
                     class: ['place-items-center', 'place-content-center'],
                 })}"
             >
-                <label for="radio-c"> ${lineShortXL} ${lineShort} </label>
+                <label for="radio-c"> ${lineShort} </label>
                 <input type="radio" name="option" value="C" id="radio-c" />
             </div>
         </fieldset>

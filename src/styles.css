@@ -6,11 +6,6 @@
 
 /* demo */
 :root {
-    --accent: red;
-    --purple: lch(44, 75, 348);
-    --salmon: lch(64, 75, 12);
-    --orange: lch(72, 75, 24);
-
     --tooltip-border: #333;
 }
 
@@ -49,9 +44,10 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: calc(var(--hit-area-height) * 1.2);
-        height: calc(var(--hit-area-height) * 1.2);
+        width: calc(var(--hit-area-height) * 1.1);
+        height: calc(var(--hit-area-height) * 1.1);
         transform: translate(-16px, 16px);
+        z-index: var(--z-3);
     }
 }
 
@@ -79,8 +75,8 @@
     }
 
     .ratio-demo input[type='radio'] {
-        width: calc(var(--hit-area-height) * 1.4);
-        height: calc(var(--hit-area-height) * 1.4);
+        width: calc(var(--hit-area-height) * 1.2);
+        height: calc(var(--hit-area-height) * 1.2);
         transform: translate(-16px, 16px);
     }
 }
@@ -110,21 +106,16 @@
 }
 
 .accent-bg {
-    background-color: var(--accent);
+    background-color: var(--salmon);
 }
 
 .unit-width-demo {
     width: 100px;
     height: fit-content;
-    box-shadow: var(--border-idle);
 }
 .unit-width-demo-xl {
     width: 128px;
 }
-
-/* .unit-width-demo:not(:has(input[type='checkbox'])) {
-    box-shadow: var(--shadow);
-} */
 
 .card p:first-of-type:not(:only-child),
 [data-card] p:first-of-type:not(:only-child) {
@@ -134,5 +125,5 @@
 #show-tray,
 #show-tray:hover,
 #show-tray:focus {
-    background-color: var(--accent);
+    background-color: var(--salmon);
 }

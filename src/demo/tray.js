@@ -56,9 +56,7 @@ function TrayContent() {
 
             <p>
                 Find code in
-                <a href="https://github.com/polmoneys" data-margin-left="auto">
-                    repo
-                </a>
+                <a href="https://github.com/membrane-lol/css"> repo </a>
                 ${Icon({ d: 'github', label: 'github', size: 36 })}
             </p>
         </div>

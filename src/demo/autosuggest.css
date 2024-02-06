@@ -1,0 +1,32 @@
+body {
+    font-family: sans-serif;
+}
+.container {
+    position: relative;
+}
+.container__input {
+    background: transparent;
+    position: relative;
+}
+.container__mirror {
+    align-items: center;
+    display: flex;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.container__pre-cursor {
+    color: transparent;
+}
+.container__post-cursor {
+    opacity: 0.4;
+}
+
+input {
+    width: 100%;
+    padding: 0.4em;
+}
